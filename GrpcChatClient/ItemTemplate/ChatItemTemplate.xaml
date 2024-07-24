@@ -1,0 +1,23 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="ListViewItem" x:Key="ChatItemTemplate">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20, 0, 20, 0">
+                        <!--Username and datetime-->
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="{Binding Sender}" Foreground="#40404F" FontWeight="Bold" FontFamily="Open Sans" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                            <Label Content="{Binding DateTime}" Foreground="Gray" FontFamily="Open Sans" FontSize="10" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                        </StackPanel>
+                        
+                        <!--Message-->
+                        <TextBlock Text="{Binding Message}" Foreground="#40404F" FontSize="14" FontFamily="Open Sans" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5, 0, 0, 0"/>
+                    </StackPanel>
+                    
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

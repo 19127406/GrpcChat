@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "Hxh1uv7G9nJ3LbIdoUGr5NZIoMUf1zqhr1h4gm/CnRo=",
+  "Source": "GrpcChatServer",
+  "BasePath": "_content/GrpcChatServer",
+  "Mode": "Default",
+  "ManifestType": "Publish",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

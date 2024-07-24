@@ -1,0 +1,2 @@
+obj\Release\net8.0-windows\Protos/Chat.cs \
+obj\Release\net8.0-windows\Protos/ChatGrpc.cs: Protos/chat.proto

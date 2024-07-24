@@ -1,0 +1,47 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="images\icons\account_circle.png" />
+    <None Remove="images\icons\add.png" />
+    <None Remove="images\icons\add_white.png" />
+    <None Remove="images\icons\chat.ico" />
+    <None Remove="images\icons\groups.png" />
+    <None Remove="images\icons\groups_white.png" />
+    <None Remove="images\icons\send.png" />
+    <None Remove="Protos\chat.proto" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf" Version="3.27.2" />
+    <PackageReference Include="Grpc.Net.Client" Version="2.63.0" />
+    <PackageReference Include="Grpc.Tools" Version="2.64.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="Protos\chat.proto">
+      <GrpcServices>Client</GrpcServices>
+    </Protobuf>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="images\icons\account_circle.png" />
+    <Resource Include="images\icons\add.png" />
+    <Resource Include="images\icons\add_white.png" />
+    <Resource Include="images\icons\chat.ico" />
+    <Resource Include="images\icons\groups.png" />
+    <Resource Include="images\icons\groups_white.png" />
+    <Resource Include="images\icons\send.png" />
+  </ItemGroup>
+
+</Project>
