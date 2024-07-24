@@ -1,0 +1,14 @@
+C:\Things\Some Code\GrpcChat\GrpcChatServer\obj\Release\net8.0\PubTmp\Out\GrpcChatServer.exe
+C:\Things\Some Code\GrpcChat\GrpcChatServer\obj\Release\net8.0\PubTmp\Out\appsettings.Development.json
+C:\Things\Some Code\GrpcChat\GrpcChatServer\obj\Release\net8.0\PubTmp\Out\appsettings.json
+C:\Things\Some Code\GrpcChat\GrpcChatServer\obj\Release\net8.0\PubTmp\Out\GrpcChatServer.dll
+C:\Things\Some Code\GrpcChat\GrpcChatServer\obj\Release\net8.0\PubTmp\Out\GrpcChatServer.deps.json
+C:\Things\Some Code\GrpcChat\GrpcChatServer\obj\Release\net8.0\PubTmp\Out\GrpcChatServer.runtimeconfig.json
+C:\Things\Some Code\GrpcChat\GrpcChatServer\obj\Release\net8.0\PubTmp\Out\GrpcChatServer.pdb
+C:\Things\Some Code\GrpcChat\GrpcChatServer\obj\Release\net8.0\PubTmp\Out\Google.Protobuf.dll
+C:\Things\Some Code\GrpcChat\GrpcChatServer\obj\Release\net8.0\PubTmp\Out\Grpc.AspNetCore.Server.dll
+C:\Things\Some Code\GrpcChat\GrpcChatServer\obj\Release\net8.0\PubTmp\Out\Grpc.AspNetCore.Server.ClientFactory.dll
+C:\Things\Some Code\GrpcChat\GrpcChatServer\obj\Release\net8.0\PubTmp\Out\Grpc.Core.Api.dll
+C:\Things\Some Code\GrpcChat\GrpcChatServer\obj\Release\net8.0\PubTmp\Out\Grpc.Net.Client.dll
+C:\Things\Some Code\GrpcChat\GrpcChatServer\obj\Release\net8.0\PubTmp\Out\Grpc.Net.ClientFactory.dll
+C:\Things\Some Code\GrpcChat\GrpcChatServer\obj\Release\net8.0\PubTmp\Out\Grpc.Net.Common.dll

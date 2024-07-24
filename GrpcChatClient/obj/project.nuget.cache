@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "1p9CEiseIrk=",
+  "success": true,
+  "projectFilePath": "C:\\Things\\Some Code\\GrpcChat\\GrpcChatClient\\GrpcChatClient.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\iamju\\.nuget\\packages\\google.protobuf\\3.27.2\\google.protobuf.3.27.2.nupkg.sha512",
+    "C:\\Users\\iamju\\.nuget\\packages\\grpc.core.api\\2.63.0\\grpc.core.api.2.63.0.nupkg.sha512",
+    "C:\\Users\\iamju\\.nuget\\packages\\grpc.net.client\\2.63.0\\grpc.net.client.2.63.0.nupkg.sha512",
+    "C:\\Users\\iamju\\.nuget\\packages\\grpc.net.common\\2.63.0\\grpc.net.common.2.63.0.nupkg.sha512",
+    "C:\\Users\\iamju\\.nuget\\packages\\grpc.tools\\2.64.0\\grpc.tools.2.64.0.nupkg.sha512",
+    "C:\\Users\\iamju\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

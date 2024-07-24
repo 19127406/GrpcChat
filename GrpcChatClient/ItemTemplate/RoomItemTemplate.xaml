@@ -1,0 +1,34 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="ListViewItem" x:Key="RoomItemTemplate">
+        <Style.Triggers>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Background" Value="#40404F"/>
+                <Setter Property="Foreground" Value="White"/>
+            </Trigger>
+        </Style.Triggers>
+
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="#40404F"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListViewItem">
+                    <Border Background="{TemplateBinding Background}" CornerRadius="5" Height="65" Margin="0, 5, 0, 5">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
+                            <!--Showing room/person icon-->
+                            <Ellipse Width="35" Height="35" Margin="20, 0, 20, 0" VerticalAlignment="Center" HorizontalAlignment="Left">
+                                <Ellipse.Fill>
+                                    <ImageBrush ImageSource="{Binding ImageSource}"/>
+                                </Ellipse.Fill>
+                            </Ellipse>
+
+                            <!--Showing Username-->
+                            <Label Content="{Binding Name}" Foreground="{TemplateBinding Foreground}" Margin="10, 0, 0, 0" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="14" FontWeight="SemiBold" FontFamily="Open Sans"/>
+                        </StackPanel>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

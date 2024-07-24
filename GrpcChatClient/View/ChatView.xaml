@@ -1,0 +1,156 @@
+﻿<UserControl x:Class="GrpcChatClient.View.ChatView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GrpcChatClient.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="540" d:DesignWidth="960">
+    <UserControl.Resources>
+        <!--Override control template to disable mouse-over change background effect-->
+        <ControlTemplate x:Key="NoMouseOverButtonTemplate" TargetType="Button">
+            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+            </Border>
+
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Background" Value="{x:Static SystemColors.ControlLightBrush}" />
+                    <Setter Property="Foreground" Value="{x:Static SystemColors.GrayTextBrush}" />
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Image Source="/images/icons/account_circle.png" Width="30" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <Label x:Name="CurrentUsername" Content="{Binding Username}" FontSize="16" FontFamily="Open Sans" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="15, 0, 0, 0"/>
+        </StackPanel>
+
+        <Border Grid.Column="0" Grid.Row="1" CornerRadius="5" Margin="10, 5, 5, 10" Background="#F8F8FF" BorderThickness="0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0, 5, 0, 5">
+                    <!--Search for existed room/person-->
+                    <Grid>
+                        <TextBox x:Name="SearchInput" Text="{Binding AddRoom, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BorderThickness="0" Background="White" Height="30" Width="200" VerticalContentAlignment="Center" Padding="9, 0, 10, 0" Margin="0, 0, 5, 0">
+                            <!--Set textbox corner slightly rounded-->
+                            <TextBox.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </TextBox.Resources>
+                            <TextBox.InputBindings>
+                                <KeyBinding Command="{Binding JoinRoomCommand}" Key="Return"/>
+                            </TextBox.InputBindings>
+                        </TextBox>
+
+                        <!--Textbox placeholder-->
+                        <TextBlock Text="Add a room or someone....." IsHitTestVisible="False" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="LightGray" FontFamily="Open Sans" Margin="10, 0, 10, 0">
+                            <TextBlock.Style>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Text, ElementName=SearchInput}" Value="">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </Grid>
+
+                    <!--Add chat room/person button-->
+                    <Button x:Name="AddRoomButton" Margin="5, 0, 0, 0" Width="75" Height="30" Background="#40404F" BorderThickness="0" Template="{StaticResource NoMouseOverButtonTemplate}" Command="{Binding JoinRoomCommand}">
+                        <Image Source="/images/icons/add_white.png" VerticalAlignment="Center" HorizontalAlignment="Center" Width="25"/>
+                        <!--Set slightly rounded corner to Button-->
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </StackPanel>
+
+                <ListView ItemsSource="{Binding Rooms}" SelectedItem="{Binding SelectedRoom}" ItemContainerStyle="{StaticResource RoomItemTemplate}" Grid.Row="1" Margin="0, 5, 0, 0" Background="Transparent" BorderThickness="0">
+                </ListView>
+            </Grid>
+        </Border>
+
+        <Border Grid.Column="1" Grid.Row="1" CornerRadius="5" Margin="5, 5, 10, 10" Background="#F8F8FF">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <!--Chat list-->
+                <ListView Grid.Row="0" Margin="0, 10, 0, 10" Background="Transparent" BorderThickness="0" ItemsSource="{Binding SelectedRoom.Messages}" ItemContainerStyle="{StaticResource ChatItemTemplate}">
+                    <!--Make chat appear bottom-up-->
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel VerticalAlignment="Bottom"/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                </ListView>
+
+                <!--Message input-->
+                <StackPanel Grid.Row="1" Orientation="Horizontal">
+                    <Grid VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20, 5, 0, 5">
+                        <TextBox x:Name="MessageInput" Text="{Binding Message, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="40" Width="540" BorderThickness="0" Background="#EDF1FE" VerticalContentAlignment="Center" Foreground="#40404F" FontSize="14" FontFamily="Open Sans" Padding="19, 0, 20, 0">
+                            <!--Set slightly rounded corner to Textbox-->
+                            <TextBox.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="20"/>
+                                </Style>
+                            </TextBox.Resources>
+                            <TextBox.InputBindings>
+                                <KeyBinding Command="{Binding SendCommand}" Key="Return"/>
+                            </TextBox.InputBindings>
+                        </TextBox>
+
+                        <!--Make placeholder for textbox-->
+                        <TextBlock Text="Message....." IsHitTestVisible="False" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="LightGray" FontSize="14" FontFamily="Open Sans" Margin="20, 0, 20, 0">
+                            <TextBlock.Style>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Text, ElementName=MessageInput}" Value="">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </Grid>
+
+                    <!--Send message button-->
+                    <Button Width="40" Height="40" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="15, 0, 0, 0" BorderThickness="0" Background="#40404F" Template="{StaticResource NoMouseOverButtonTemplate}" Command="{Binding SendCommand}">
+                        <Image Source="/images/icons/send.png" VerticalAlignment="Center" HorizontalAlignment="Center" Width="25"/>
+                        <!--Set rounded corner to Button-->
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="50"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

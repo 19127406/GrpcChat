@@ -1,0 +1,10 @@
+C:\Things\Some Code\GrpcChat\Publish\Client\GrpcChatClient.exe
+C:\Things\Some Code\GrpcChat\Publish\Client\GrpcChatClient.dll
+C:\Things\Some Code\GrpcChat\Publish\Client\GrpcChatClient.runtimeconfig.json
+C:\Things\Some Code\GrpcChat\Publish\Client\GrpcChatClient.pdb
+C:\Things\Some Code\GrpcChat\Publish\Client\Google.Protobuf.dll
+C:\Things\Some Code\GrpcChat\Publish\Client\Grpc.Core.Api.dll
+C:\Things\Some Code\GrpcChat\Publish\Client\Grpc.Net.Client.dll
+C:\Things\Some Code\GrpcChat\Publish\Client\Grpc.Net.Common.dll
+C:\Things\Some Code\GrpcChat\Publish\Client\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Things\Some Code\GrpcChat\Publish\Client\GrpcChatClient.deps.json
