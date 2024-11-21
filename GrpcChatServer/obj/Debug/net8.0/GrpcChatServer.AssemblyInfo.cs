@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GrpcChatServer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+834c9bd7f166c78888110ee1fabed034ee11cc35")]
 [assembly: System.Reflection.AssemblyProductAttribute("GrpcChatServer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GrpcChatServer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

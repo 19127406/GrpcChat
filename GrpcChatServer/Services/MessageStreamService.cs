@@ -38,25 +38,18 @@ namespace GrpcChat.Services
         private bool RemoveActiveClientFromRooms(string username)
         {
             var c = _clients.Find(x => x.Name == username);
-            if (c != null)
+            if (c == null) return false;
+            foreach (var room in _rooms.Values)
             {
-                foreach (var room in _rooms.Values)
-                {
-                    room.Remove(c);
-                }
-                return true;
+                room.Remove(c);
             }
-            return false;
+            return true;
         }
 
         private bool RemoveActiveClient(string username)
         {
             var c = _clients.Find(x => x.Name == username);
-            if (c != null)
-            {
-                return _clients.Remove(c);
-            }
-            return false;
+            return c != null && _clients.Remove(c);
         }
 
         public bool IsRoom(string room, out string info)
@@ -94,7 +87,7 @@ namespace GrpcChat.Services
                     if (c != null)
                         c.Stream = stream;
                 }
-                
+
                 info = string.Empty;
                 return true;
             }
